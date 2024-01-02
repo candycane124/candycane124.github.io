@@ -1,0 +1,1026 @@
+* {
+    box-sizing: border-box;
+    cursor: default;
+}
+
+a {
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    z-index: 900;
+}
+
+
+/* -- DESKTOP -- */
+
+#screen {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: url("assets/wallpaper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 12px;
+    padding-top: 6px;
+    padding-left: 4px;
+    overflow: hidden;
+}
+
+#screen .icon {
+    margin: 4px;
+    padding: 8px;
+    border: 2px solid transparent;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
+
+#screen .icon img {
+    height: 50px;
+    width: 50px;
+}
+
+#screen .icon span {
+    display: block;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+#screen .icon:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
+/* -- POPUPS -- */
+
+.window {
+    position: absolute;
+}
+
+/* Startup Alert */
+#startup-content {
+    width: 440px;
+    height: auto;
+    background: rgb(251, 251, 251);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#startup-content .header {
+    font-size: 12px;
+    background-color: rgb(253, 253, 253);
+    color: rgb(180,180,180);
+    align-items: center;
+}
+
+#startup-content .header .close {
+    font-size: 15px;
+    width: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#startup-content .header .close:hover {
+    color: rgb(200, 20, 20);
+}
+
+#startup-content .main {
+    display: flex;
+    margin: 20px;
+    gap: 12px;
+    font-size: 14px;
+}
+
+#startup-content .main img {
+    width: 30px;
+    height: 30px;
+}
+
+#startup-content .footer {
+    background-color: rgb(233, 233, 233);
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#startup-content .footer button {
+    box-sizing: border-box;
+    width: 80px;
+    padding: 4px;
+    background-color: rgb(221,221,221);
+    border: rgb(170,170,170) solid 1px;
+    border-radius: 1px;
+    font-size: 14px;
+}
+
+#startup-content .footer button:hover {
+    background-color: rgba(60, 100, 200, 0.1);
+    border-color: rgba(60, 100, 200, 0.8);
+}
+
+/* Settings Window */
+#settings-content {
+    display: none;
+    border-radius: 5px;
+}
+
+#settings-content .header {
+    background-color: rgb(253, 251, 251);
+    font-size: 14px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#settings-content .header img {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+#settings-content .settings-main {
+    position: absolute;
+    width: 750px;
+    height: 480px;
+    top: 25px;
+    left: 340px;
+    border-radius: 6px;
+    background-color: rgb(253, 251, 251);
+}
+
+#settings-content .title-bar-button {
+    width: 30px;
+    height: 100%;
+    text-align: center;
+    color: rgb(60, 60, 60)
+}
+
+#settings-content .title-bar-button:hover {
+    background-color: rgb(0,0,0,0.15);
+    color: black;
+}
+
+#settings-content .settings-close:hover {
+    background-color: rgb(160, 30, 30);
+    color: white;
+    cursor: pointer;
+}
+
+#settings-content .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings-content .profile #profile-photo {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#settings-content .profile .info {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#settings-content .profile .info div {
+    /* border: black solid 2px; */
+    margin-left: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+#settings-content .profile .info div:hover {
+    color:rgb(60, 15, 200);
+}
+
+#settings-content .profile .info img {
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+    margin: 4px;
+    margin-left: 2px;
+}
+
+#settings-content .profile .info #name {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px;
+    margin-bottom: 5px;
+}
+
+#settings-content .description {
+    height: 200px;
+    text-indent: 25px;
+    margin: 5px 50px;
+    line-height: 20px;
+    overflow: auto;
+    padding-right: 5px;
+}
+
+/* Notes Popup */
+#notes-content {
+    /* display: none; */
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.n-close {
+    position: fixed;
+    top: 5px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.n-close:hover {
+    color: rgba(255,10,10);
+}
+
+/* Netflix Window */
+#netflix-content {
+    display: none;
+}
+
+#netflix-content #blackout {
+    display: none;
+    position: absolute;
+    height: 370px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#netflix-content .netflix-main {
+    background-color: rgb(0,0,0);
+    position: fixed;
+    width: 700px;
+    height: 400px;
+    top: 50px;
+    left: 20%;
+}
+
+#netflix-content .header {
+    background-color: black;
+    color: white;
+}
+
+#netflix-content .left img {
+    height: 24px;
+    width: auto;
+}
+
+#netflix-content .title-bar-button {
+    width: 30px;
+    text-align: center;
+}
+
+#netflix-content .title-bar-button:hover {
+    background-color: white;
+    color: black;
+}
+
+#netflix-content .netflix-close {
+    cursor: pointer;
+}
+
+#netflix-content .netflix-close:hover {
+    background-color: red;
+}
+
+#netflix-content .netflix-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#netflix-content .show-main {
+    box-sizing: border-box;
+    width: 100%;
+    height: 210px;
+    color: black;
+}
+
+#netflix-content .show-main .screencap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    background: -webkit-linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0) 80%, rgba(60,60,60,0.15) 100%), url('assets/grass.jpg'); /* Chrome10+, Safari5.1+ */
+    /* background: -moz-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0.1)), url('assets/grass.jpg');  /*  FF3.6+ */
+}
+
+#netflix-content .show-main .n-text {
+    position: absolute;
+    top: 90px;
+    left: 100px;
+}
+
+#netflix-content .show-main .title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+#netflix-content .show-main .description {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    line-height: 18px;
+    font-size: 14px;
+}
+
+#netflix-content .show-main .netflix-ux {
+    position: relative;
+    display: flex;
+    background-color:rgba(60, 60, 60, 0.6);
+    text-align: center;
+    justify-content: center;
+    padding: 4px;
+    margin-top: 10px;
+    width: 80px;
+    color: white;
+    font-size: 13px;
+    gap: 4px;
+}
+
+#netflix-content .show-main .netflix-ux img {
+    width: 15px;
+    height: auto;
+}
+
+#netflix-content .show-main .netflix-ux #play-black {
+    display: none;
+    z-index: 100;
+}
+
+#netflix-content .show-main .netflix-ux:hover {
+    background-color: white;
+    color: black;
+}
+
+#netflix-content .show-main .netflix-ux:hover #play-black {
+    display: inline;
+}
+
+#netflix-content .show-main .netflix-ux:hover #play-white {
+    display: none;
+}
+
+#netflix-content .project-date {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    color: rgb(100,100,100);
+    font-size: 13px;
+    font-style: italic;
+}
+
+#netflix-content .row-title {
+    font-size: 16px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    color: white;
+}
+
+#netflix-content .show-row {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+#netflix-content .show {
+    width: 220px;
+    height: 118px;
+    background-color: red;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: end;
+    flex: 1;
+}
+
+#netflix-content .show .title {
+    color: white;
+    font-size: 14px;
+    margin: 4px;
+}
+
+#netflix-content .show .season {
+    color: rgb(221,221,221);
+    font-size: 13px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+}
+
+#netflix-content .show-info {
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 350px;
+    left: 150px;
+    top: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 2px;
+}
+
+#netflix-content .show-info .close {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+    padding-top: 3px;
+    margin: auto;
+    font-size: 15px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+}
+
+#netflix-content .show-info .close:hover {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 16px;
+    color: red;
+}
+
+#netflix-content .show-info .screencaps {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 133px;
+}
+
+#netflix-content .show-info .screencaps img {
+    height: 100%;
+    flex-grow: 1; 
+}
+
+#netflix-content .show-info .screencaps video {
+    height: 100%;
+    flex-grow: 1; 
+}
+
+#netflix-content .show-info .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 14px;
+    margin: 10px;
+}
+
+#netflix-content .show-info .date {
+    font-size: 12px;
+    margin: 10px;
+    margin-top: 0px;
+}
+
+#netflix-content .show-info .netflix-ux {
+    display: flex;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;
+    width: 380px;
+    height: 21px;
+    color: black;
+    font-size: 14px;
+    border-radius: 2px;
+    gap: 10px;
+    padding: 2px;
+}
+
+#netflix-content .show-info .netflix-ux:hover {
+    background-color: red;
+    color: white;
+}
+
+#netflix-content .show-info .netflix-ux img {
+    width: 15px;
+    /* width: auto; */
+}
+
+#netflix-content .show-info .netflix-ux #play-white {
+    display: none;
+}
+
+#netflix-content .show-info .netflix-ux:hover #play-white {
+    display: flex;
+}
+
+#netflix-content .show-info .netflix-ux:hover #play-black {
+    display: none;
+}
+
+#netflix-content .show-info .description {
+    font-size: 14px;
+    margin: 10px;
+}
+
+#netflix-content .show-info .cast {
+    font-size: 13px;
+    margin: 10px;
+    margin-bottom: 3px;
+    color: rgb(180,180,180);
+}
+
+#netflix-content .show-info .cast a {
+    font-size: 13px;
+    color: rgb(180,180,180);
+}
+
+#netflix-content .show-info .cast a:hover {
+    font-size: 13px;
+    color: rgb(200,200,200);
+    text-decoration: underline;
+}
+
+#netflix-content .show-info .languages {
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 0px;
+    color: rgb(180,180,180);
+}
+
+/* Basic Header */
+.header {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgray;
+    color: black;
+}
+
+.header .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 8px;
+}
+
+.header .left img {
+    width: 80px;
+    height: 40px;
+}
+
+.header .right {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header .right div {
+    padding: 6px;
+}
+
+.folder-main {
+    background-color: rgb(240,240,240);
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    top: 30%;
+    left: 30%;
+}
+
+#photos-content {
+    display: none;
+}
+
+#photos-content .title-bar-button {
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}
+
+#photos-content .title-bar-button:hover {
+    background-color: rgb(0,0,0,0.15);
+}
+
+#photos-content .project-close:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#photos-content .top-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#photos-content .top-bar .box {
+    border: 1px solid rgb(223, 223, 223);
+    height: 20px;
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    font-size: 12px;
+    color:rgb(60, 60, 60);
+    gap: 4px;
+    align-items: center;
+}
+
+#photos-content .top-bar #path {
+    width: 260px;
+}
+
+#photos-content .top-bar #search {
+    width: 135px;
+    justify-content: space-between;
+    color: rgb(100,100,100);
+}
+
+#photos-content .top-bar #search a {
+    color: rgb(10,25,45);
+}
+
+#photos-content .top-bar #search a:hover {
+    color: rgb(150,100,250);
+}
+
+#photos-content .top-bar .box img {
+    height: 5px;
+    width: auto;
+}
+
+#photos-content .top-bar #doc-icon {
+    height: 14px;
+    width: auto;
+}
+
+#photos-content .top-bar #search-icon {
+    height: 10px;
+    width: auto;
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#photos-content #photos-main {
+    overflow: auto;
+    height: 240px;
+}
+
+#photos-content .time-label {
+    color: rgb(60, 15, 200);
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+#photos-content .time-label img {
+    width: 12px;
+    height: 8px;
+    margin: 4px;
+}
+
+#photos-content .img-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    gap: 10px;
+    margin: 4px;
+    align-items: flex-end;
+}
+
+#photos-content .img-row img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    align-self: flex-end;
+    padding: 6px;
+}
+
+#photos-content .img-row img:hover {
+    background-color: rgba(50,125,255,0.2);
+}
+
+#projects-content {
+    display: none;
+}
+
+#projects-content .title-bar-button {
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}
+
+#projects-content .title-bar-button:hover {
+    background-color: rgb(0,0,0,0.15);
+}
+
+#projects-content .project-close:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#projects-content .top-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#projects-content .top-bar .box {
+    border: 1px solid rgb(223, 223, 223);
+    height: 20px;
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    font-size: 12px;
+    color:rgb(60, 60, 60);
+    gap: 4px;
+    align-items: center;
+}
+
+#projects-content .top-bar .box a {
+    color:rgb(60, 60, 60);
+    font-size: 12px;
+}
+
+#projects-content .top-bar #path {
+    width: 260px;
+}
+
+#projects-content .top-bar #search {
+    width: 135px;
+    justify-content: space-between;
+    color: rgb(100,100,100);
+    /* font-style: italic; */
+}
+
+#projects-content .top-bar .box img {
+    height: 5px;
+    width: auto;
+}
+
+#projects-content .top-bar #doc-icon {
+    height: 14px;
+    width: auto;
+}
+
+#projects-content .top-bar #search-icon {
+    height: 10px;
+    width: auto;
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#projects-content .project-label {
+    color: rgb(60, 15, 200);
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+#projects-content .project-label img {
+    width: 12px;
+    height: 8px;
+    margin: 12px;
+}
+
+#projects-content .project-parent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    margin: 4px;
+}
+
+#projects-content .project {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#projects-content .project:hover {
+    background-color: rgb(75,135,245,0.15);
+}
+
+#projects-content .project img {
+    width: 80px;
+    height: 80px;
+}
+
+#google-content {
+    display: none;
+}
+
+#google-content iframe {
+    width: 500px;
+    height: 400px;
+}
+
+#google-content .title-bar-button {
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}
+
+#google-content .title-bar-button:hover {
+    background-color: rgb(0,0,0,0.15);
+}
+
+#google-content .project-close:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+/* taskbar */
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background-color: rgb(5, 20, 40);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    padding: 5px 0px;
+    border-top: solid 1px rgba(100, 190, 210, 0.15);
+}
+
+#footer .taskbar-left {
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 3px;
+}
+
+#footer .taskbar-left .ft-icon {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+#footer .taskbar-left .ft-icon img {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#footer .taskbar-left #pfp img {
+    border-radius: 50%;
+}
+
+#footer .taskbar-right {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    gap: 2px;
+}
+
+#footer .taskbar-right .ft-item {
+    position: relative;
+    height: 40px;
+    width: auto;
+}
+
+#footer .taskbar-right #notifs {
+    width: 10px;
+    height: 40px;
+}
+
+#footer .taskbar-right #date-time {
+    padding: 4px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 12px;
+    color: white;
+}
+
+#footer .taskbar-right #network {
+    width: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2px;
+}
+
+#footer .taskbar-right #network img {
+    height: 16px;
+    width: 20px;
+}
+
+#footer .taskbar-right #taskbar-corner {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer .taskbar-right #taskbar-corner img {
+    height: 16px;
+    width: 20px;
+}
+
+#footer .ft-icon:hover, #footer .ft-item:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* taskbar popups */
+#corner-content {
+    position: absolute;
+    padding: 6px;
+    border-radius: 6px;
+    bottom: 46px;
+    width: 120px;
+    font-size: 12px;
+    background-color: rgb(10,25,45);
+    display: none;
+}
+
+#network-content {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 6px;
+    border-radius: 6px;
+    bottom: 46px;
+    left: -90px;
+    width: 220px;
+    background-color: rgb(10,25,45);
+    display: none;
+}
+
+#network-content #network-main {
+    color: white;
+    padding: 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+}
+
+#network-content .wifi {
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#network-content .wifi:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+#network-content .wifi-detail {
+    font-size: 12px;
+}

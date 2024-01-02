@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <script src="script.js"></script>
+    <script src="drag.js"></script>
+    <title>Angela's Desktop</title>
+</head>
+<body>
+    <div id="screen">
+        <!-- startup -->
+        <!-- <div id="startup-content">
+            <div class="header">
+                <div class="left">
+                    Angela's Laptop v1.0
+                </div>
+                <div class="right">
+                    <div class="close" onclick="closeApp('startup')">X</div>
+                </div>
+            </div>
+            <div class="main">
+                <img src="assets/attention.png">
+                <div>
+                    <div class="paragraph">
+                        Hello! I'm Angela Huang, a first-year software engineering student at the University of Waterloo. I bring a solid foundation in Python and C, with hands-on experience in projects using Pygame and a grasp of pointers and structures. Currently seeking a 4-month software engineering co-op position, I'm particularly interested in opportunities related to game design.
+                    </div>
+                    <div class="paragraph">
+                        What sets me apart is my unique blend of logical and analytical thinking coupled with creative skills. My background in traditional and media art, combined with an open mindset, allows me to approach problem-solving in a fresh and innovative way.
+                    </div>
+                    <div class="paragraph">
+                        I'm a quick learner and thrive on acquiring and applying new skills. Facing challenges head-on, I'm determined to find efficient solutions. I'm not just seeking a co-op; I'm eager to contribute to something meaningful and be proud of the work I do.
+                    </div>
+                    <div class="paragraph">
+                        Outside of coding, my interests in video games, art, and reading align seamlessly with my passion for game design. I'm excited about the prospect of bringing my skills and enthusiasm to a dynamic professional environment.
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button onclick="closeApp('startup')">OK</button>
+            </div>
+        </div> -->
+
+        <!-- desktop icons -->
+        <div class="icon" onclick="openApp('settings')">
+            <img src="./assets/settings.png">
+            <span>Account Info</span>
+        </div>
+        <div class="icon" onclick="openApp('photos')">
+            <img src="./assets/photos.png">
+            <span>Photos</span>
+        </div>
+        <!-- <div class="icon">
+            <img src="./assets/creative-cloud.png">
+            <span>Creative Cloud</span>
+        </div> -->
+        <div class="icon" onclick="openApp('netflix')">
+            <img src="./assets/netflix.png">
+            <span>Projects</span>
+        </div>
+        <!-- <div class="icon folder" onclick="openApp('games')">
+            <img src="./assets/folder.png">
+            <span>Games</span>
+        </div> -->
+        <!-- <div class="icon folder" onclick="openApp('projects')">
+            <img src="./assets/folder.png">
+            <span>Projects</span>
+        </div> -->
+        <div class="icon" id="notes" onclick="openApp('notes')">
+            <img src="./assets/note.png">
+            <span>Notes</span>
+        </div>
+        <a href="assets/Huang, Angela - 1A Resume.pdf" target="_blank" class="icon"><div id="resume">
+            <img src="./assets/pdf.png">
+            <span>resume.pdf</span>
+        </div></a>
+
+        <!-- content/popups -->
+        <div id="settings-content" onclick="bringFront('settings')">
+            <div class="settings-main">
+                <div class="header tab">
+                    <div class="left"><img src="assets/ham.png">Settings > Account Info</div>
+                    <div class="right">
+                        <div class="title-bar-button" onclick="closeApp('settings')">-</div>
+                        <div class="title-bar-button">O</div>
+                        <div class="title-bar-button settings-close" onclick="closeApp('settings')">X</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="profile">
+                        <img id="profile-photo" src="assets/pfp.jpg">
+                        <div class="info">
+                            <div id="name">Angela Huang</div>
+                            <div><img src="assets/email.png"><a href="mailto:aangelahuang05@gmail.com">aangelahuang05@gmail.com</a></div>
+                            <div><img src="assets/email.png"><a href="mailto:a244huan@uwaterloo.ca">a244huan@uwaterloo.ca</a></div>
+                            <div><img src="assets/phone.png"><a href="tel:6477222838">(647) 722-2838</a></div>
+                            <div><img src="assets/linkedin.png"><a href="https://www.linkedin.com/in/aangelah/" target="_blank">in/aangelah</a></div>
+                            <div><img src="assets/github.png"><a href="https://github.com/candycane124" target="_blank">candycane124</a></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="description">
+                            <div>My name is Angela Huang, a first year Software Engineering student at the University of Waterloo. Currently seeking a 4-month software engineering co-op position, I'm particularly interested in opportunities related to game design.
+                            </div>
+                            <div>I bring a unique blend of logical and analytical thinking coupled with creative skills: I have a solid foundation in Python and C, with hands-on experience in projects using Pygame and a grasp of pointers and structures, as well as a background in traditional and media art. I'm a quick learner and thrive on learning and applying new skills. I'm determined to find efficient solutions to any challenges head-on. I'm not just seeking a co-op; I'm eager to contribute to something meaningful and be proud of the work I do.
+                            </div>
+                            <div>Outside of coding, my interests in video games, art, and reading align seamlessly with my passion for game design. I'm excited about the prospect of bringing my skills and enthusiasm to a dynamic professional environment.
+                            </div>
+                            <!-- <ul>
+                                <li>a current Waterloo student studying software engineering</li>
+                                <li>an analytical thinker and creative problem-solver</li>
+                                <li>a curious individual with solid foundations in Python & C</li>
+                                <li>an avid gamer, reader, artist, and traveller</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="photos-content" onclick="bringFront('photos')">
+            <div class="folder-main">
+                <div class="header tab">
+                    <div class="left">
+                        Photos
+                    </div>
+                    <div class="right">
+                        <div class="title-bar-button" onclick="closeApp('photos')">-</div>
+                        <div class="title-bar-button">O</div>
+                        <div class="title-bar-button project-close" onclick="closeApp('photos')">X</div>
+                    </div>
+                </div>
+                <div class="top-bar">
+                    <div id="path" class="box">
+                        <img id="doc-icon" src="assets/picture.png">
+                        <img src="assets/right.png">
+                        <div>Angela - ...</div>
+                        <img src="assets/right.png">
+                        <div>Photos</div>
+                    </div>
+                    <div id="search" class="box">
+                        <!-- <div>Search Photos</div> -->
+                        <div><a href="./art.html" target="_blank">See More Photos</a></div>
+                        <img id="search-icon" src="assets/search2.png">
+                    </div>
+                </div>
+                <div id="photos-main">
+                    <div class="time-section" id="photo-this-year">
+                        <div class="time-label"><img src="assets/down.png">Earlier this year (2023)</div>
+                        <div class="img-row">
+                            <img src="art/media-NP.png">
+                            <img src="art/media-WPAP.png">
+                            <img src="art/t3-hw.jpg">
+                        </div>
+                    </div>
+                    <div class="time-section" id="photo-past-year">
+                        <div class="time-label"><img src="assets/down.png">Last year (2022)</div>
+                        <div class="img-row">
+                            <img src="art/t7-vs.jpg">
+                            <img src="art/t1-hp.jpg">
+                            <img src="art/media-SMBW2.png">
+                            <img src="art/t5-vp.jpg">
+                            <img src="art/t6-vp.jpg">
+                        </div>
+                    </div>
+                    <div class="time-section" id="photo-long-ago">
+                        <div class="time-label"><img src="assets/down.png">A long time ago (2021)</div>
+                        <div class="img-row">
+                            <img src="art/t11-vw.jpg">
+                            <img src="art/t2-hs.jpg">
+                            <img src="art/t12-hp.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- projects (netflix) -->
+        <div id="netflix-content" onclick="bringFront('netflix')">
+            <div class="netflix-main">
+                <div class="header tab">
+                    <div class="left">
+                        <img src="/assets/Projects.png">
+                    </div>
+                    <div class="right">
+                        <div class="title-bar-button" onclick="closeApp('netflix')">-</div>
+                        <div class="title-bar-button">O</div>
+                        <div class="title-bar-button netflix-close" onclick="closeApp('netflix')">X</div>
+                    </div>
+                </div>
+                <div class="netflix-container">
+                    <div class="show-main" onclick="showInfo('sackthesheep')">
+                        <div class="screencap" onclick="showInfo('sackthesheep')"></div>
+                        <div class="n-text">
+                            <div class="title">Sack The Sheep</div>
+                            <div class="description">A 2D top-down single-player game built using Python's Pygame.</div>
+                            <a class="netflix-ux" href="https://github.com/candycane124/SackTheSheep" target="_blank">
+                            <img src="assets/play.png" id="play-white">
+                            <img src="assets/play-black.png" id="play-black">
+                            Play
+                            </a>
+                            <div class="project-date">2023</div>
+                        </div>
+                    </div>
+                    <div class="row-title">
+                        Continue Watching
+                    </div>
+                    <div class="show-row">
+                        <div class="show" onclick="showInfo('gpsbuddy')">
+                            <!-- <img src="assets/GPS_buddy.jpg"></img> -->
+                            <div class="title">GPS Robo Buddy</div>
+                            <div class="season">Oct - Dec 2023</div>
+                        </div>
+                        <div class="show" onclick="showInfo('minionmash')">
+                            <div class="title">Minion Mash</div>
+                            <div class="season">Aug 2023</div>
+                        </div>
+                        <!-- <div class="show">
+                            <div class="title">ELEVEN!</div>
+                            <div class="season">Jun 2023</div>
+                        </div> -->
+                    </div>
+                    <div id="blackout"></div>
+                    <div id="sackthesheep-info" class="show-info">
+                        <div class="close" onclick="closeInfo('sackthesheep')">X</div>
+                        <div class="screencaps">
+                            <img src="assets/STS_title.png"></img>
+                            <img src="assets/STS_level.png"></img>
+                            <img src="assets/STS_shop.png"></img>
+                        </div>
+                        <div class="title">Sack The Sheep</div>
+                        <div class="date">March 2023 - June 2023</div>
+                        <a class="netflix-ux" href="https://github.com/candycane124/SackTheSheep" target="_blank">
+                            <img src="assets/play.png" id="play-white">
+                            <img src="assets/play-black.png" id="play-black">
+                            Play
+                        </a>
+                        <div class="description">Avoid the obstacles & capture the escaped sheep in this 2D top-down game! 3 levels of increasing difficulty, a shop for upgrading gear, and a high score board.</div>
+                        <div class="cast">Cast: <a href="https://www.linkedin.com/in/aangelah/" target="_blank">Angela Huang</a>, <a href="https://www.linkedin.com/in/alina-huan-4aaa91207/?originalSubdomain=ca" target="_blank">Alina Huan</a>, <a href="https://www.linkedin.com/in/snow-shi-932947247/" target="_blank">Snow Shi</a></div>
+                        <div class="languages">Language: Python</div>
+                    </div>
+                    <div id="gpsbuddy-info" class="show-info">
+                        <div class="screencaps">
+                            <!-- <img src="assets/GPS_buddy.jpg"></img> -->
+                            <img src="assets/GPS_turtle.png"></img>
+                            <video controls>
+                                <source src="assets/GPS_video.mp4" type="video/mp4">
+                                Video is not supported on browser.
+                            </video>
+                        </div>
+                        <div class="close" onclick="closeInfo('gpsbuddy')">X</div>
+                        <div class="title">GPS Robo Buddy</div>
+                        <div class="date">November 2023 - December 2023</div>
+                        <a class="netflix-ux" href="https://github.com/candycane124/GridBot" target="_blank">
+                            <img src="assets/play.png" id="play-white">
+                            <img src="assets/play-black.png" id="play-black">
+                            Play
+                        </a>
+                        <div class="description">Built a robot car able to navigate a grid system with obstacles. Calculates optimal path using a breadth first search algorithm and moves to the user's desired co-ordinates.</div>
+                        <div class="cast">Cast: <a href="https://www.linkedin.com/in/aangelah/" target="_blank">Angela Huang</a>, <a href="" target="_blank">Jahnavi Malhotra</a>, <a href="https://www.linkedin.com/in/laavanyathiagalingam/" target="_blank">Laavanya Thiagalingam</a>, <a href="https://www.linkedin.com/in/gloriawng/" target="_blank">Gloria Wang</a>, Alexia Himelfarb</div>
+                        <div class="languages">Technology: Raspberry Pi Zero W, Python</div>
+                    </div>
+                    <div id="minionmash-info" class="show-info">
+                        <div class="close" onclick="closeInfo('minionmash')">X</div>
+                        <div class="screencaps">
+                            <img src="assets/MM_main.png"></img>
+                        </div>
+                        <div class="title">Minion Mash</div>
+                        <div class="date">August 2023</div>
+                        <a class="netflix-ux" href="https://github.com/candycane124/Minion-Mash" target="_blank">
+                            <img src="assets/play.png" id="play-white">
+                            <img src="assets/play-black.png" id="play-black">
+                            Play
+                        </a>
+                        <div class="description">Get 3 in a row or more in this minion-themed match-3 web app. Earn points when you make matches and race against the clock!</div>
+                        <div class="cast">Cast: <a href="https://www.linkedin.com/in/aangelah/" target="_blank">Angela Huang</a>, <a href="https://www.linkedin.com/in/nicole-zhan-626114251/" target="_blank">Nicole Zhan</a>, <a href="https://www.linkedin.com/in/alina-huan-4aaa91207/?originalSubdomain=ca" target="_blank">Alina Huan</a></div>
+                        <div class="languages">Language: JavaScript, HTML, CSS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="projects-content" onclick="bringFront('projects')">
+            <div class="folder-main">
+                <div class="header tab">
+                    <div class="left">
+                        Projects
+                    </div>
+                    <div class="right">
+                        <div class="title-bar-button" onclick="closeApp('projects')">-</div>
+                        <div class="title-bar-button">O</div>
+                        <div class="title-bar-button project-close" onclick="closeApp('projects')">X</div>
+                    </div>
+                </div>
+                <div class="top-bar">
+                    <div id="path" class="box">
+                        <img id="doc-icon" src="assets/document.png">
+                        <img src="assets/right.png">
+                        <div>Angela - ...</div>
+                        <img src="assets/right.png">
+                        <div>Documents</div>
+                        <img src="assets/right.png">
+                        <div>Projects</div>
+                    </div>
+                    <div id="search" class="box">
+                        <div>Search Projects</div>
+                        <img id="search-icon" src="assets/search2.png">
+                    </div>
+                </div>
+                <div class="project-label"><img src="assets/down.png">Earlier this year</div>
+                <div class="project-parent">
+                    <a href="https://github.com/candycane124/SackTheSheep" target="_blank">
+                    <div class="project">
+                        <img src="assets/grass.jpg">
+                        <div>Sack the Sheep</div>
+                    </div>
+                    </a>
+                    <a href="https://github.com/candycane124/Minion-Mash" target="_blank">
+                    <div class="project">
+                        <img src="assets/Bob.png"
+                        <div>Minion Mash</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="notes-content" onclick="bringFront('notes')">
+            <div class="tab">
+                <div class="n-close" onclick="closeApp('notes')">X</div>
+                <div>Hi, I'm Angela, it's nice to meet you! Currently, I am a first-year Waterloo student studying software engineering. I'm a curious individual with a penchant for analytical thinking and creative problem-solving. Feel free to take a look around! &lt3
+                </div>        
+            </div>
+        </div>
+
+        <div id="google-content" onclick="bringFront('google')">
+            <div class="header tab">
+                <div class="left">
+                    Web Browser
+                </div>
+                <div class="right">
+                    <div class="title-bar-button" onclick="closeApp('google')">-</div>
+                    <div class="title-bar-button">O</div>
+                    <div class="title-bar-button project-close" onclick="closeApp('google')">X</div>
+                </div>
+            </div>
+            <iframe src="https://dinosaur-game.io/"></iframe>
+        </div>
+
+    </div>
+
+
+    <div id="blocker" onclick="hideTaskPop()"></div>
+    <!-- taskbar -->
+    <div id="footer">
+        <div class="taskbar-left">
+            <div id="pfp" class="ft-icon" onclick="openApp('settings')">
+                <img src="./assets/me.JPG">
+            </div>
+            <!-- <div id="search" class="ft-icon">
+                <img src="./assets/search.png">
+            </div> -->
+            <div id="firefox" class="ft-icon" onclick="openApp('google')">
+                <img src="assets/firefox.png">
+            </div>
+            <!-- <div id="discord" class="ft-icon">
+                <img src="assets/discord.png">
+            </div> -->
+            <div id="netflix" class="ft-icon" onclick="openApp('netflix')">
+                <img src="assets/netflix.png">
+            </div>
+            <div id="mail" class="ft-icon" onclick="sendMail()">
+                <img src="assets/mail.png">
+            </div>
+        </div>
+        <div class="taskbar-right">
+            <div id="notifs" class="ft-item">
+
+            </div>
+            <div id="date-time">
+                <div>Updated:</div>
+                <div>2023-12-23</div>
+            </div>
+            <div id="network" class="ft-item" onclick="hideTaskPop(); taskbarOpen('network')">
+                <img src="assets/wifi.png">
+                <img src="assets/battery.png">
+                <div id="network-content">
+                    <div id="network-main">
+                    WiFi
+                    <div class="wifi">
+                        <img src="assets/wifi.png">
+                        <div>University Of Waterloo<div class="wifi-detail">Connected, Secured</div></div>
+                    </div>
+                    <div class="wifi">
+                        <img src="assets/wifi.png">
+                        <div>Wireless Mississauga</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div id="taskbar-corner" class="ft-item" onclick="hideTaskPop(); taskbarOpen('corner')">
+                <img id="corner" src="assets/up.png">
+                <div id="corner-content"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
